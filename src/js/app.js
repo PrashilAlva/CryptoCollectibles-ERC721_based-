@@ -74,7 +74,7 @@ initialize:function(){
       ownerCounter++;
       app.ownerOf(ownerCounter).then((ownerr)=>{
         if(ownerr==App.currentAccount){
-          if(ownerCounter==0){
+          if(loopCounter==0){
             text = text +
             "<div class='row'><div class='col-sm'><div style='background-color:"+data+";width:150px;height:150px;border-radius: 50%;display: inline-block;'></div><h3 style='padding-left: 37px;'>"+data+"</h3></div>"
             }
@@ -93,6 +93,25 @@ initialize:function(){
       })
     })
   })
+},
+transferToken:function(){
+// console.log(App.currentAccount)
+var add=document.getElementById('transferAddress').value
+var code=document.getElementById('transferCode').value
+// console.log(add+code)
+App.contracts.Color.deployed().then((i)=>{
+  app=i;
+  return app.getID.call(code)
+}).then((val)=>{
+  return app.safeTransferFrom(App.currentAccount,add,val.toNumber())
+}).then((rec)=>{
+  if(rec.receipt.status=='0x1'){
+    alert("Transfer Success!");
+    location.reload()
+  }
+  else
+  alert("Some error has occured....")
+})
 }
 };
 

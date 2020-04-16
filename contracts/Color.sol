@@ -22,4 +22,13 @@ contract Color is ERC721Full {
     dataa[_color] = _id;
   }
 
+  modifier colorExists(string memory code){
+    require(_colorExists[code]);
+    _;
+  }
+
+  function getID(string memory hexCode) public colorExists(hexCode) returns(uint){
+    return dataa[hexCode];
+  }
+
 }

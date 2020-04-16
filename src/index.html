@@ -33,15 +33,32 @@
         </li>
     </nav>
     <br>
-    <form class="formm">
-      <h1>Add Token</h1>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Kindly add the Color code below</label>
-        <center><input type="text" class="form-control" id="tokenID" style="width: 250px;" aria-describedby="emailHelp" placeholder="Color Code here.."></center>
-        <small id="emailHelp" class="form-text text-muted">Note : Color code must be Hex</small>
+    <div class="row">
+      <div class="col">
+        <form class="formm">
+          <h1>Add Token</h1>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Kindly add the Color code below</label>
+            <center><input type="text" class="form-control" id="tokenID" style="width: 250px;" aria-describedby="emailHelp" placeholder="Color Code here.."></center>
+            <small id="emailHelp" class="form-text text-muted">Note : Color code must be Hex</small>
+          </div>
+          <button type="button" class="btn btn-outline-info" onclick="App.addToken()">Add Token</button>
+        </form>
       </div>
-      <button type="button" class="btn btn-outline-info" onclick="App.addToken()">Add Token</button>
-    </form>
+      <div class="col">
+        <form class="formm">
+          <h1>Transfer Token</h1>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Kindly fill the below Fields</label>
+            <center><input type="text" class="form-control" id="transferAddress" style="width: 250px;" aria-describedby="emailHelp" placeholder="Recipent's Account Address"></center>
+            <br>
+            <center><input type="text" class="form-control" id="transferCode" style="width: 250px;" aria-describedby="emailHelp" placeholder="Color Code"></center>
+            <small id="emailHelp" class="form-text text-muted">Note : Color code must be Hex</small>
+          </div>
+          <button type="button" class="btn btn-outline-info" onclick="App.transferToken()">Transfer Token</button>
+        </form>
+      </div>
+    </div>
     <br>
     <hr>
     <br>
